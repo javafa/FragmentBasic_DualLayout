@@ -25,17 +25,17 @@ public class MainActivity extends AppCompatActivity implements ItemFragment.OnLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // create 에서 프래그먼트 스택 예외처리 하기
+        // 1. create 에서 프래그먼트 스택 예외처리 하기
         FragmentManager manager = getSupportFragmentManager();
         int stackCount = manager.getBackStackEntryCount();
         if(stackCount > 0) {
             manager.popBackStack();
         }
 
-        // 예외처리후 세팅해준다
+        // 2. 예외처리후 세팅해준다
         setContentView(R.layout.activity_main);
 
-        // 선택된 프래그먼트가 있다면 재생성 < land 뷰에서 예외처리는 각자 해보세요
+        // 3. 선택된 프래그먼트가 있다면 재생성
         if(position > -1){
             goDetail();
         }
